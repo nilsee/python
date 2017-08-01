@@ -3,7 +3,7 @@ An automated backend-tool to register and deploy ip-addesses for Fail2Ban
 
 ## Requiremnts
 * Install python-mysql connector: http://dev.mysql.com/doc/connector-python/en/connector-python-installation.html
-* Installe mysqlutils packages from /mailx/develment/pyton_devel using pip
+* Installe mysqlutils packages using pip
 
 ## Installation
 * run install.sh
