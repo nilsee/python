@@ -6,5 +6,4 @@ as
 		  union
 	   select deny_ip as ip from f2b_blacklist
 	) banned
-	where banned.ip not in ( select allow_ip as ip
-							 from f2b_whitelist ); 
+	where banned.ip not in ( select allow_ip as ip from f2b_whitelist ); 
