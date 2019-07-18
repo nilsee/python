@@ -11,3 +11,8 @@ An automated backend-tool to register and deploy ip-addesses for Fail2Ban
 
 ## Set up Fail2Ban
 * Edit actions in /etc/fail2ban/actions.d/iptables-multiport.conf
+
+actionban = <iptables> -I f2b-<name> 1 -s <ip> -j <blocktype>
+            # Log all bannings, as candidates for blacklist
+            # echo '<ip>' >> /etc/fail2ban/ip.blacklist.candidates
+            f2b_attack_log.py attacker '<ip>'
