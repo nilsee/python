@@ -36,7 +36,7 @@ def get_banlist():
             print(row[0])
             row = cursor.fetchone()
     except Error as e:
-        sys.stderr.write(e)
+        sys.stderr.write("Database error querying table 'f2b_v_banlist': {0}".format(e))
     finally:
         cursor.close()
         conn.close()
@@ -50,7 +50,7 @@ def add_attacker(host, address):
         result_args = cursor.callproc('f2b_sp_log_attack', args)
         conn.commit()
     except Error as e:
-        sys.stderr.write(e)
+        sys.stderr.write("Database error calling 'f2b_sp_log_attack': {0}".format(e))
     finally:
         cursor.close()
         conn.close()
@@ -64,7 +64,7 @@ def add_to_whitelist(address):
         result_args = cursor.callproc('f2b_sp_add_to_whitelist', args)
         conn.commit()
     except Error as e:
-        sys.stderr.write(e)
+        sys.stderr.write("Database error calling 'f2b_sp_add_to_whitelist': {0}".format(e))
     finally:
         cursor.close()
         conn.close()
@@ -78,7 +78,7 @@ def add_to_blacklist(address):
         result_args = cursor.callproc('f2b_sp_add_to_blacklist', args)
         conn.commit()
     except Error as e:
-        sys.stderr.write(e)
+        sys.stderr.write("Database error calling 'f2b_sp_add_to_blacklist': {0}".format(e))
     finally:
         cursor.close()
         conn.close()
@@ -92,7 +92,7 @@ def add_hostname(hostname):
         result_args = cursor.callproc('f2b_sp_add_host', args)
         conn.commit()
     except Error as e:
-        sys.stderr.write(e)
+        sys.stderr.write("Database error calling 'f2b_sp_add_host': {0}".format(e))
     finally:
         cursor.close()
         conn.close()
