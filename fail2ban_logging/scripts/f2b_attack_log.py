@@ -60,7 +60,7 @@ def add_to_whitelist(address):
         db_config = read_db_config(config_file)
         conn = MySQLConnection(**db_config)
         cursor = conn.cursor()
-        args = [host, address]
+        args = [address]
         result_args = cursor.callproc('f2b_sp_add_to_whitelist', args)
         conn.commit()
     except Error as e:
